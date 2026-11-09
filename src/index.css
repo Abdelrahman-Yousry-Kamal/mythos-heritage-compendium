@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --canvas-bg: #F8F6F0;
+  --surface-bg: #EFE9DF;
+  --ink-text: #1C1917;
+  --muted-text: #575047;
+  --border-hairline: #D2C8B8;
+
+  /* Dynamic Accent Variables */
+  --theme-primary: #15324D;
+  --theme-secondary: #BF532C;
+  --theme-highlight: #8A7443;
+  --theme-surface: #ECF2F6;
+}
+
+.dark {
+  --canvas-bg: #121110;
+  --surface-bg: #1A1816;
+  --ink-text: #F0EAE1;
+  --muted-text: #A39A8D;
+  --border-hairline: #3A342C;
+
+  --theme-primary: #6CA2D1;
+  --theme-secondary: #D9683F;
+  --theme-highlight: #B89C5D;
+  --theme-surface: #102030;
+}
+
+[data-theme="odyssey"] {
+  --theme-primary: #15324D;
+  --theme-secondary: #BF532C;
+  --theme-highlight: #8A7443;
+  --theme-surface: #ECF2F6;
+}
+
+.dark [data-theme="odyssey"] {
+  --theme-primary: #76A9D9;
+  --theme-secondary: #D9683F;
+  --theme-highlight: #C2A769;
+  --theme-surface: #102030;
+}
+
+[data-theme="fatima-ali"] {
+  --theme-primary: #193E30;
+  --theme-secondary: #BA872C;
+  --theme-highlight: #82292E;
+  --theme-surface: #EDF3EE;
+}
+
+.dark [data-theme="fatima-ali"] {
+  --theme-primary: #459E7B;
+  --theme-secondary: #D4A247;
+  --theme-highlight: #D45B65;
+  --theme-surface: #0E231B;
+}
+
+/* Refined, Clean Museum Linen & Vellum Texture */
+.bg-parchment-grain {
+  background-color: #F8F6F0;
+  background-image: 
+    radial-gradient(#1C1917 0.35px, transparent 0.35px), 
+    radial-gradient(#8A7443 0.35px, #F8F6F0 0.35px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+.dark .bg-parchment-grain {
+  background-color: #121110;
+  background-image: 
+    radial-gradient(#000000 0.6px, transparent 0.6px), 
+    radial-gradient(#3A342C 0.4px, #121110 0.4px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* Hairline Editorial Borders */
+.border-hairline {
+  border: 1px solid #D2C8B8;
+}
+
+.dark .border-hairline {
+  border: 1px solid #3A342C;
+}
+
+/* Custom Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EFE9DF;
+  border-left: 1px solid #D2C8B8;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1A1816;
+  border-left: 1px solid #3A342C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8A7443;
+  border: 1px solid #1C1917;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #B89C5D;
+  border: 1px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #575047;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #D4A247;
+}
+
+/* Arabic Calligraphic Drop-Cap */
+.dropcap-ar::first-letter {
+  font-family: 'Amiri', 'Amiri Quran', serif;
+  font-size: 3rem;
+  line-height: 0.9;
+  float: right;
+  margin-left: 0.75rem;
+  margin-top: 0.15rem;
+  font-weight: 700;
+  color: var(--theme-primary);
+}
+
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
