@@ -5,39 +5,41 @@ import type { Story, ParallelTheme, Relic } from '../types';
  * IMAGE_ASSETS — مستودع الصور المنسقة لقصر المجوهرات وملحمة الأوديسة
  * =========================================================================
  */
+const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
+
 export const IMAGE_ASSETS = {
   // ملحمة الأوديسة (The Odyssey)
   odyssey: {
-    cover: '/images/odyssey-sounion-cover.jpg', // معبد بوسيدون برأس سونيون المطل على بحر إيجه
-    chapter1: '/images/odyssey-trojan-horse-vase.jpg', // جرة ميكونوس الإغاثية الأثرية لحصان طروادة (675 ق.م)
-    chapter2: '/images/odyssey-polyphemus.jpg', // هروب أوديسيوس وإفقاد بوليفيموس بصره في الكهف
-    chapter3: '/images/odyssey-sirens-vase.jpg', // جرة السيرينات بالمتحف البريطاني وأوديسيوس مقيد إلى الصاري
-    chapter4: '/images/odyssey-scylla-messina.jpg', // مضيق ميسينا وأهوال سيلا وكاريبديس
-    chapter5: '/images/odyssey-suitors-bow.jpg', // سكيفوس أثيني يصور أوديسيوس يرمي الخطاب بالقوس العظيم
+    cover: asset('images/odyssey-sounion-cover.jpg'), // معبد بوسيدون برأس سونيون المطل على بحر إيجه
+    chapter1: asset('images/odyssey-trojan-horse-vase.jpg'), // جرة ميكونوس الإغاثية الأثرية لحصان طروادة (675 ق.م)
+    chapter2: asset('images/odyssey-polyphemus.jpg'), // هروب أوديسيوس وإفقاد بوليفيموس بصره في الكهف
+    chapter3: asset('images/odyssey-sirens-vase.jpg'), // جرة السيرينات بالمتحف البريطاني وأوديسيوس مقيد إلى الصاري
+    chapter4: asset('images/odyssey-scylla-messina.jpg'), // مضيق ميسينا وأهوال سيلا وكاريبديس
+    chapter5: asset('images/odyssey-suitors-bow.jpg'), // سكيفوس أثيني يصور أوديسيوس يرمي الخطاب بالقوس العظيم
   },
 
   // قصر الأميرة فاطمة الزهراء علي حيدر - متحف المجوهرات الملكية بالإسكندرية
   fatimaAli: {
-    cover: '/images/fatima-palace.jpg', // الواجهة الملكية الأصلية لقصر الأميرة فاطمة الزهراء بزيزينيا (متحف المجوهرات الملكية)
-    chapter1: '/images/fatima-palace.jpg', // المدخل الكلاسيكي المهيب، السلالم الرخامية المنحنية، والتماثيل الحاملة للمصابيح
-    chapter2: '/images/alex-palace-corridor.jpg', // الممر الرابط بين الجناحين ونوافذ الزجاج المعشق لقصة روميو وجولييت
-    chapter3: '/images/alex-jewel-royal-family.jpg', // خزائن مجوهرات أسرة محمد علي الملكية والبلاتين والماس
-    chapter4: '/images/alex-palace-wing.jpg', // الجناح الكلاسيكي الإيطالي بالقصر وتصميم المعماري أنطونيو لاشاك
-    chapter5: '/images/alex-palace-facade-garden.jpg', // القصر وحدائقه الملكية ومتحف المجوهرات الملكية بعد حمايته وترميمه
+    cover: asset('images/fatima-palace.jpg'), // الواجهة الملكية الأصلية لقصر الأميرة فاطمة الزهراء بزيزينيا (متحف المجوهرات الملكية)
+    chapter1: asset('images/fatima-palace.jpg'), // المدخل الكلاسيكي المهيب، السلالم الرخامية المنحنية، والتماثيل الحاملة للمصابيح
+    chapter2: asset('images/alex-palace-corridor.jpg'), // الممر الرابط بين الجناحين ونوافذ الزجاج المعشق لقصة روميو وجولييت
+    chapter3: asset('images/alex-jewel-royal-family.jpg'), // خزائن مجوهرات أسرة محمد علي الملكية والبلاتين والماس
+    chapter4: asset('images/alex-palace-wing.jpg'), // الجناح الكلاسيكي الإيطالي بالقصر وتصميم المعماري أنطونيو لاشاك
+    chapter5: asset('images/alex-palace-facade-garden.jpg'), // القصر وحدائقه الملكية ومتحف المجوهرات الملكية بعد حمايته وترميمه
   },
 
   // ذخائر وحقيبة الآثار
   relics: {
-    compass: '/images/odyssey-sounion-cover.jpg', // بوصلة ورياح بحر إيجه العتيقة
-    stake: '/images/odyssey-polyphemus.jpg', // وتد خشب الزيتون وسلاح الحيلة
-    beeswax: '/images/odyssey-sirens-vase.jpg', // ختم شمع العسل ودرع مواجهة السيرينات
-    rudder: '/images/odyssey-scylla-messina.jpg', // شظية دفة كورنثية من مضيق ميسينا
-    bow: '/images/odyssey-suitors-bow.jpg', // قوس أوديسيوس العظيم
-    shieldZf: '/images/alex-palace-wing.jpg', // درع الحرفين ZF للسيدة زينب فهمي
-    stainedGlass: '/images/alex-palace-corridor.jpg', // زجاج معشق ملون يصور روميو وجولييت بالممر الملكي
-    faridaTiara: '/images/alex-jewel-exhibit-tiara.jpg', // تاج زفاف الملكة فريدة من البلاتين والماس
-    pashasTray: '/images/alex-jewel-exhibit-vitrine.jpg', // صينية الذهب بتوقيع 110 من الباشوات وخزائن الدولة
-    faroukChess: '/images/alex-jewel-exhibit-hall.jpg', // بهو التحف والشطرنج الملكي والذهب المرصع
+    compass: asset('images/odyssey-sounion-cover.jpg'), // بوصلة ورياح بحر إيجه العتيقة
+    stake: asset('images/odyssey-polyphemus.jpg'), // وتد خشب الزيتون وسلاح الحيلة
+    beeswax: asset('images/odyssey-sirens-vase.jpg'), // ختم شمع العسل ودرع مواجهة السيرينات
+    rudder: asset('images/odyssey-scylla-messina.jpg'), // شظية دفة كورنثية من مضيق ميسينا
+    bow: asset('images/odyssey-suitors-bow.jpg'), // قوس أوديسيوس العظيم
+    shieldZf: asset('images/alex-palace-wing.jpg'), // درع الحرفين ZF للسيدة زينب فهمي
+    stainedGlass: asset('images/alex-palace-corridor.jpg'), // زجاج معشق ملون يصور روميو وجولييت بالممر الملكي
+    faridaTiara: asset('images/alex-jewel-exhibit-tiara.jpg'), // تاج زفاف الملكة فريدة من البلاتين والماس
+    pashasTray: asset('images/alex-jewel-exhibit-vitrine.jpg'), // صينية الذهب بتوقيع 110 من الباشوات وخزائن الدولة
+    faroukChess: asset('images/alex-jewel-exhibit-hall.jpg'), // بهو التحف والشطرنج الملكي والذهب المرصع
   }
 };
 
