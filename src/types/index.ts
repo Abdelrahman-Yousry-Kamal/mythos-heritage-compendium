@@ -1,4 +1,4 @@
-export type StoryId = 'odyssey' | 'fatima-ali';
+export type StoryId = 'odyssey' | 'fatima-ali' | 'medusa';
 
 export type ViewMode = 'portal' | 'story' | 'parallel' | 'satchel';
 
@@ -86,6 +86,13 @@ export interface ParallelTheme {
     iconName: string;
   };
   fatimaAli: {
+    hero: string;
+    focus: string;
+    quote: string;
+    analysis: string;
+    iconName: string;
+  };
+  medusa?: {
     hero: string;
     focus: string;
     quote: string;

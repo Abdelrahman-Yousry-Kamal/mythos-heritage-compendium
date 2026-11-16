@@ -16,6 +16,7 @@ export function App() {
   const [chapterIndices, setChapterIndices] = useState<Record<StoryId, number>>({
     odyssey: 0,
     'fatima-ali': 0,
+    medusa: 0,
   });
 
   // Dark Mode State (Persisted in localStorage, defaults to Light Museum Mode)

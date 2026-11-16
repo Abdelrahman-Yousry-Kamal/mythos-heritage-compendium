@@ -145,6 +145,25 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <div className="w-px h-3.5 bg-[#D2C8B8] dark:bg-[#3A342C] mx-1" />
 
+          {/* Medusa & Perseus */}
+          <button
+            onClick={() => {
+              sounds.playPageTurn();
+              onSelectStory('medusa');
+              onSelectView('story');
+            }}
+            className={`flex items-center gap-1.5 px-3 py-1 text-xs font-arabic-title font-bold transition-all ${
+              currentView === 'story' && activeStoryId === 'medusa'
+                ? 'bg-[#2D3A30] text-[#F8F6F0] dark:bg-[#1E2D23] shadow-sm'
+                : 'text-[#575047] dark:text-[#A39A8D] hover:text-[#2D3A30] dark:hover:text-[#A4C4AA] hover:bg-[#EBEFEB] dark:hover:bg-[#131D16]'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5 text-[#A66829] dark:text-[#D4A247]" />
+            أسطورة ميدوسا وبيرسيوس
+          </button>
+
+          <div className="w-px h-3.5 bg-[#D2C8B8] dark:bg-[#3A342C] mx-1" />
+
           {/* Parallel Lore */}
           <button
             onClick={() => {
@@ -270,6 +289,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           className={`px-2 py-1 flex items-center gap-1 ${currentView === 'story' && activeStoryId === 'fatima-ali' ? 'text-[#193E30] dark:text-[#459E7B] border-b-2 border-[#193E30] dark:border-[#459E7B]' : 'text-[#575047] dark:text-[#A39A8D]'}`}
         >
           قصر المجوهرات
+        </button>
+        <button
+          onClick={() => {
+            sounds.playPageTurn();
+            onSelectStory('medusa');
+            onSelectView('story');
+          }}
+          className={`px-2 py-1 flex items-center gap-1 ${currentView === 'story' && activeStoryId === 'medusa' ? 'text-[#2D3A30] dark:text-[#A4C4AA] border-b-2 border-[#2D3A30] dark:border-[#A4C4AA]' : 'text-[#575047] dark:text-[#A39A8D]'}`}
+        >
+          ميدوسا
         </button>
         <button
           onClick={() => {

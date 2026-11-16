@@ -24,6 +24,7 @@ export const RelicSatchelDrawer: React.FC<RelicSatchelDrawerProps> = ({
 }) => {
   const odysseyRelics = ALL_RELICS.filter((r) => r.storyId === 'odyssey');
   const fatimaRelics = ALL_RELICS.filter((r) => r.storyId === 'fatima-ali');
+  const medusaRelics = ALL_RELICS.filter((r) => r.storyId === 'medusa');
 
   const totalCount = ALL_RELICS.length;
   const unlockedCount = unlockedRelicIds.length;
@@ -229,6 +230,72 @@ export const RelicSatchelDrawer: React.FC<RelicSatchelDrawerProps> = ({
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between gap-1">
                               <span className="text-[10px] font-mono uppercase text-[#BA872C] dark:text-[#D4A247] truncate font-bold">
+                                الفصل {relic.chapterIndex + 1}
+                              </span>
+                              {isUnlocked && (
+                                <span className="text-[10px] font-arabic-title text-[#193E30] dark:text-[#459E7B] font-bold flex items-center gap-0.5">
+                                  <CheckCircle2 className="w-3 h-3" />
+                                  متاح
+                                </span>
+                              )}
+                            </div>
+                            <h4 className="font-arabic-title font-bold text-xs text-[#1C1917] dark:text-[#F0EAE1] truncate">
+                              {isUnlocked ? relic.name : 'أثر محجوب في المغامرة'}
+                            </h4>
+                            <p className="font-arabic-body text-[10px] text-[#575047] dark:text-[#A39A8D] truncate">
+                              {isUnlocked ? relic.category : 'انقر دبابيس الفصل أو اتخذ قرارك لكشفه'}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Section 3: Medusa & Perseus */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2.5 pb-1 border-b border-[#2D3A30]/30 dark:border-[#3D5242]/50">
+                    <Sparkles className="w-4 h-4 text-[#A66829] dark:text-[#D4A247]" />
+                    <h3 className="font-arabic-title font-bold text-sm text-[#2D3A30] dark:text-[#A4C4AA]">
+                      ذخائر أسطورة ميدوسا وبيرسيوس (الأولمب)
+                    </h3>
+                  </div>
+
+                  <div className="space-y-2">
+                    {medusaRelics.map((relic) => {
+                      const isUnlocked = unlockedRelicIds.includes(relic.id);
+                      return (
+                        <div
+                          key={relic.id}
+                          onClick={() => {
+                            if (isUnlocked) {
+                              sounds.playPageTurn();
+                              onInspectRelic(relic);
+                            }
+                          }}
+                          className={`p-2 border transition-all flex items-center gap-3 ${
+                            isUnlocked
+                              ? 'bg-[#EBEFEB] dark:bg-[#131D16] border-[#2D3A30] dark:border-[#3D5242] shadow-tactile-sm dark:shadow-tactile-dark-sm cursor-pointer hover:bg-[#F8F6F0] dark:hover:bg-[#1A1816]'
+                              : 'bg-[#EFE9DF]/50 dark:bg-[#1A1816]/50 border-[#D2C8B8] dark:border-[#3A342C] opacity-60 cursor-not-allowed'
+                          }`}
+                        >
+                          <div className="relative w-11 h-11 border border-[#1C1917] dark:border-[#3A342C] bg-[#1C1917] shrink-0 overflow-hidden">
+                            {isUnlocked ? (
+                              <img
+                                src={relic.imageUrl}
+                                alt={relic.name}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center bg-[#575047]/20">
+                                <Lock className="w-3.5 h-3.5 text-[#575047] dark:text-[#A39A8D]" />
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="text-[10px] font-mono uppercase text-[#A66829] dark:text-[#D4A247] truncate font-bold">
                                 الفصل {relic.chapterIndex + 1}
                               </span>
                               {isUnlocked && (

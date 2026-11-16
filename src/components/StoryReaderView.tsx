@@ -79,8 +79,9 @@ export const StoryReaderView: React.FC<StoryReaderViewProps> = ({
   };
 
   const isOdyssey = storyId === 'odyssey';
-  const primaryThemeColor = isOdyssey ? '#15324D' : '#193E30';
-  const accentThemeColor = isOdyssey ? '#BF532C' : '#BA872C';
+  const isMedusa = storyId === 'medusa';
+  const primaryThemeColor = isOdyssey ? '#15324D' : isMedusa ? '#2D3A30' : '#193E30';
+  const accentThemeColor = isOdyssey ? '#BF532C' : isMedusa ? '#A66829' : '#BA872C';
 
   return (
     <div 
@@ -177,9 +178,12 @@ export const StoryReaderView: React.FC<StoryReaderViewProps> = ({
             
             {/* Visual Stage Container */}
             <div className="relative">
-              {isOdyssey ? (
+              {isOdyssey || isMedusa ? (
                 /* Classical Rectangular Frame with Brass Corner Brackets */
-                <div className="relative border-2 border-[#15324D] bg-[#1C1917] p-2 shadow-tactile-odyssey">
+                <div 
+                  className="relative border-2 p-2 shadow-tactile-odyssey"
+                  style={{ borderColor: primaryThemeColor, backgroundColor: '#1C1917' }}
+                >
                   <BrassCorner position="top-left" className="top-1 left-1" size={20} />
                   <BrassCorner position="top-right" className="top-1 right-1" size={20} />
                   <BrassCorner position="bottom-left" className="bottom-1 left-1" size={20} />
@@ -392,7 +396,7 @@ export const StoryReaderView: React.FC<StoryReaderViewProps> = ({
               </p>
               <div className="shrink-0 flex items-center gap-2">
                 <CuratorialStamp 
-                  text={isOdyssey ? "أرشيف إيثاكا" : "متحف المجوهرات"} 
+                  text={isOdyssey ? "أرشيف إيثاكا" : isMedusa ? "أرشيف الأساطير الإغريقية" : "متحف المجوهرات"} 
                   code={`CAT-${chapter.romanNumber}`}
                   color={accentThemeColor}
                 />
@@ -465,8 +469,8 @@ export const StoryReaderView: React.FC<StoryReaderViewProps> = ({
               ))}
             </div>
 
-            {isOdyssey ? (
-              <GreekMeanderDivider className="w-full h-3 my-2" color="#8A7443" />
+            {isOdyssey || isMedusa ? (
+              <GreekMeanderDivider className="w-full h-3 my-2" color={accentThemeColor} />
             ) : (
               <IslamicGeometricDivider className="w-full h-3 my-2" color="#BA872C" />
             )}
